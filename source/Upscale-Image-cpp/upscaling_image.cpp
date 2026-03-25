@@ -99,27 +99,6 @@ Color getPixelRGB(CImg<unsigned char> &image, unsigned int x, unsigned int y)
     return Color(red, green, blue);
 }
 
-/*
-def UpscalingImage2x(image):
-    width = image.size[0] #Определяем ширину. 
-    height = image.size[1] #Определяем высоту. 
-    
-    up_image = Image.new(mode="RGB", size=(width * 2, height * 2))
-    draw = ImageDraw.Draw(up_image) #Создаем инструмент для рисования. 
-    	
-    orig_pix = image.load() #Выгружаем значения пикселей.
-    
-    for i in range(0, width):
-        for j in range(0, height):
-            pixel = orig_pix[i, j]
-            
-            for k in range(0, 2):
-                for m in range(0, 2):
-                    draw.point((2 * i + k, 2 * j + m), pixel)
-                    
-    return up_image
-*/
-
 CImg<unsigned char> upscalingImage2x(CImg<unsigned char> orig_img)
 {
     int width = orig_img.width();
@@ -132,6 +111,7 @@ CImg<unsigned char> upscalingImage2x(CImg<unsigned char> orig_img)
         for (int j = 0; j < 2 * height; j++)
         {
             Color orig_col = getPixelRGB(orig_img, i, j);
+            
             setPixelRGB(up_image, i, j, orig_col);
             setPixelRGB(up_image, i + 1, j, orig_col);
             setPixelRGB(up_image, i, j + 1, orig_col);
