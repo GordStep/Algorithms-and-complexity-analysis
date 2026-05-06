@@ -3,6 +3,7 @@
 
 #include "bst.h"
 
+
 #define COUNT_NUMBERS 64
 
 int isInArr(int arr[], int len, int target)
@@ -40,14 +41,21 @@ int main()
 		printf("%d ", arr[i]);
 	}
 
-	printf("\n\ninorder traversal: \n");
+	printf("\n\nОтсортированный обход: \n");
 	bst_inorder_traversal(head);
 
-	printf("\n\npreorder traversal: \n");
+	printf("\n\npreorderTraversal - обход узлов в порядке: вершина, левое поддерево, правое поддерево: \n");
 	bst_preorder_traversal(head);
 
 	int target_val = 4;
-	printf("\n\nУдаляем элемент с значением %d:\n", target_val);
+
+	// printTree(head, 0);
+	printTree(head, 0);
+
+	printf("Введите занчени для удаления: ");
+	scanf("%d", &target_val);
+
+	printf("\nУдаляем элемент с значением %d:\n", target_val);
 	
 	head = bst_delete(head, target_val);
 

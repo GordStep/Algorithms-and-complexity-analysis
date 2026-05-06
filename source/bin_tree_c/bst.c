@@ -19,7 +19,6 @@ def bst_list_all(root) — центрированный обход (рекурс
 */
 
 
-
 bst_node* create_bst_node(int value)
 {
 	bst_node* node = (bst_node*)malloc(sizeof(bst_node));
