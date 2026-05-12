@@ -41,6 +41,8 @@ func main() {
 		fmt.Println("Ошибка чтения файла:", err)
 		return
 	}
+
+	fmt.Println("Текст из файла:")
 	fmt.Println(text)
 
 	text = strings.ToLower(text)
@@ -70,4 +72,8 @@ func main() {
 	fmt.Println("\nСамые часто встречающиеся слова: ")
 
 	hashTable.PrintMostPopularWords(10)
+
+	// fmt.Println("франзуз", ht.GetHashString("француз")%256)
+	// fmt.Println("мог", ht.GetHashString("мог")%256)
+	// fmt.Println("повеса", ht.GetHashString("повеса")%256)
 }
